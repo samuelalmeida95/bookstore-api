@@ -21,8 +21,8 @@ public class Livro implements Serializable{
     private String nome_autor;
     private String texto;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
+    @ManyToOne //muitos para um
+    @JoinColumn(name = "categoria_id") //coluna de juncao
     private Categoria categoria;
 
     public Livro(int id, String titulo, String nome_autor, String texto, Categoria categoria) {
