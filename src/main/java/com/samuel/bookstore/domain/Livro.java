@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Livro implements Serializable{
     
@@ -21,6 +23,7 @@ public class Livro implements Serializable{
     private String nome_autor;
     private String texto;
 
+    @JsonIgnore
     @ManyToOne //muitos para um
     @JoinColumn(name = "categoria_id") //coluna de juncao
     private Categoria categoria;
@@ -33,7 +36,11 @@ public class Livro implements Serializable{
         this.texto = texto;
         this.categoria = categoria;
     }
+    
+    public Livro(){
 
+    }
+    
     public Integer getId() {
         return id;
     }

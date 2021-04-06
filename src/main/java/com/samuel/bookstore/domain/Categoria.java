@@ -10,12 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Categoria implements Serializable{
     
     private static final long serialVersionUID = 1L;
 
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
@@ -28,6 +31,10 @@ public class Categoria implements Serializable{
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
+    }
+
+    public Categoria(){
+        
     }
 
     public Integer getId() {
