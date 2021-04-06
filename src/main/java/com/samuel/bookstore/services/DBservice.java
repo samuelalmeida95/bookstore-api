@@ -31,10 +31,10 @@ public class DBservice {
         Livro l4 = new Livro(null, "The War of the Worlds", "H.G. Wells", "Lorem ipsum", cat2);
         Livro l5 = new Livro(null, "I, Robot", "Isaac Asimov", "Lorem ipsum", cat2);
             
-      /*   cat1.getLivros().addAll(Arrays.asList(l1, l2));
+       /*  cat1.getLivros().addAll(Arrays.asList(l1, l2));
         cat2.getLivros().addAll(Arrays.asList(l3, l4, l5));
             
         categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
-        livroRepository.saveAll(Arrays.asList(l1, l2, l3, l4, l5)); */
+        livroRepository.saveAll(Arrays.asList(l1, l2, l3, l4, l5)); */ 
     }
 }
