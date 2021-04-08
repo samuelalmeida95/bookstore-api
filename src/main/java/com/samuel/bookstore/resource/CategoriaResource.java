@@ -1,6 +1,10 @@
 package com.samuel.bookstore.resource;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.samuel.bookstore.domain.Categoria;
+import com.samuel.bookstore.dtos.CategoriaDTO;
 import com.samuel.bookstore.services.CategoriaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,13 @@ public class CategoriaResource {
     public ResponseEntity<Categoria> findById(@PathVariable Integer id) {
         Categoria obj = service.findById(id);
         return ResponseEntity.ok(obj);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoriaDTO>> findAll() {
+        List<Categoria> list = service.findAll();
+        List<CategoriaDTO> listDTO = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
     }
 
 }
