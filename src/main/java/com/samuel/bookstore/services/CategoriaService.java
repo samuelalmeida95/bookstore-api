@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.samuel.bookstore.domain.Categoria;
+import com.samuel.bookstore.dtos.CategoriaDTO;
 import com.samuel.bookstore.repositories.CategoriaRepository;
 import com.samuel.bookstore.services.exceptions.ObjectNotFoundException;
 
@@ -23,14 +24,20 @@ public class CategoriaService {
                 "Objeto não encontrado!  Id: " + id + " Tipo: " + Categoria.class.getName()));
     }
 
-    public List<Categoria> findAll(){
+    public List<Categoria> findAll() {
         return repository.findAll();
     }
 
-    public Categoria create(Categoria obj){
+    public Categoria create(Categoria obj) {
         obj.setId(null);
         return repository.save(obj);
     }
 
-    
+    public Categoria update(Integer id, CategoriaDTO objDto) {
+        Categoria obj = findById(id);
+        obj.setNome(objDto.getNome());
+        obj.setDescricao(objDto.getDescricao());
+        return repository.save(obj);
+    }
+
 }
