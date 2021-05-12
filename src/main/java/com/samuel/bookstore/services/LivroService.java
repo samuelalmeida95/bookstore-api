@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.samuel.bookstore.domain.Livro;
+import com.samuel.bookstore.dtos.LivroDTO;
 import com.samuel.bookstore.repositories.LivroRepository;
 import com.samuel.bookstore.services.exceptions.ObjectNotFoundException;
 
@@ -29,6 +30,13 @@ public class LivroService {
     public Livro create(Livro livro) {
         livro.setId(null);
         return repository.save(livro);
+    }
+
+    public Livro update(Integer id, LivroDTO livroDTO) {
+      Livro livro = findById(id);
+      livro.setTitulo(livroDTO.getTitulo());
+      livro.setNomeAutor(livroDTO.getNomeAutor());
+      return repository.save(livro);
     }
 
 }
