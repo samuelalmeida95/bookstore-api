@@ -64,6 +64,7 @@ public class LivroResource {
     public ResponseEntity<Livro> update(
         @PathVariable Integer idCategoria, 
         @PathVariable Integer idLivro,
+        @Valid
         @RequestBody Livro livro) {
 
         Livro newLivro = service.update(idCategoria, idLivro, livro);
