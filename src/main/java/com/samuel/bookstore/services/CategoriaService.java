@@ -19,10 +19,10 @@ public class CategoriaService {
     private CategoriaRepository repository;
 
     // busca por id
-    public Categoria findById(Integer id) {
-        Optional<Categoria> obj = repository.findById(id);
+    public Categoria findById(Integer idCategoria) {
+        Optional<Categoria> obj = repository.findById(idCategoria);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado!  Id: " + id + " Tipo: " + Categoria.class.getName()));
+                "Objeto não encontrado!  Id: " + idCategoria + " Tipo: " + Categoria.class.getName()));
     }
 
     public List<Categoria> findAll() {
@@ -34,17 +34,17 @@ public class CategoriaService {
         return repository.save(obj);
     }
 
-    public Categoria update(Integer id, CategoriaDTO objDto) {
-        Categoria obj = findById(id);
+    public Categoria update(Integer idCategoria, CategoriaDTO objDto) {
+        Categoria obj = findById(idCategoria);
         obj.setNome(objDto.getNome());
         obj.setDescricao(objDto.getDescricao());
         return repository.save(obj);
     }
 
-    public void delete(Integer id) {
-        findById(id);
+    public void delete(Integer idCategoria) {
+        findById(idCategoria);
         try {
-            repository.deleteById(id);
+            repository.deleteById(idCategoria);
 
         } catch (DataIntegrityViolationException e) {
             throw new DataIntegrityViolationException("Categoria não pode ser deletada, possui livros associados");

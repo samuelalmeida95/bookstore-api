@@ -27,9 +27,9 @@ public class CategoriaResource {
     @Autowired
     private CategoriaService service;
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Categoria> findById(@PathVariable Integer id) {
-        Categoria obj = service.findById(id);
+    @GetMapping(value = "/{idCategoria}")
+    public ResponseEntity<Categoria> findById(@PathVariable Integer idCategoria) {
+        Categoria obj = service.findById(idCategoria);
         return ResponseEntity.ok(obj);
     }
 
@@ -47,22 +47,22 @@ public class CategoriaResource {
 
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/{id}")
+                .path("/{idCategoria}")
                 .buildAndExpand(categoria.getId())
                 .toUri();
 
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<CategoriaDTO> update(@PathVariable Integer id, @RequestBody CategoriaDTO objDto) {
-        Categoria newObj = service.update(id, objDto);
+    @PutMapping(value = "/{idCategoria}")
+    public ResponseEntity<CategoriaDTO> update(@PathVariable Integer idCategoria, @RequestBody CategoriaDTO objDto) {
+        Categoria newObj = service.update(idCategoria, objDto);
         return ResponseEntity.ok().body(new CategoriaDTO(newObj));
     }
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        service.delete(id);
+    @DeleteMapping(value = "/{idCategoria}")
+    public ResponseEntity<Void> delete(@PathVariable Integer idCategoria) {
+        service.delete(idCategoria);
         return ResponseEntity.noContent().build();
     }
 }
