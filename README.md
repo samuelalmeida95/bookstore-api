@@ -15,7 +15,7 @@ Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`ca
 
 - **`POST /categorias`**: A rota deve receber `nome` e `descricao` dentro do corpo da requisição.
 
-- **`GET /categorias`**: Rota que lista todos as categorias, certifique-se de que apenas as categorias sem os seus livros estão na respostas, para isso você deve **`implementar um DTO`** para categoria;
+- **`GET /categorias`**: Rota que lista todos as categorias, certifique-se de que apenas as categorias sem os seus livros estão na respostas, para isso você deve implementar um **`DTO`** para categoria;
 
 - **`PUT /categorias/:id`**: A rota deve alterar apenas o `nome`, a `descricao` que serão recebidos no corpo da requisição, você deve encontrar no repositório um `id` igual ao `id` presente nos parâmetros da rota;
 
@@ -31,7 +31,7 @@ Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`ca
 
 - **`GET/livros/1`**: Rota que lista um livro pelo seu `id`.
 
-- **`GET/livros`**: Rota que lista todos os `livros`, certifique-se de que apenas o `titulo` e o `nomeAutor` do livro estarão na resposta, ou seja, a resposta não pode conter o id e o texto do livro, para isso você deve **`implementar um DTO`** para livro;
+- **`GET/livros`**: Rota que lista todos os `livros`, certifique-se de que apenas o `titulo` e o `nomeAutor` do livro estarão na resposta, ou seja, a resposta não pode conter o id e o texto do livro, para isso você deve implementar um **` DTO`** para livro;
 
 - **`PUT /livros/:id`**: A rota deve alterar apenas o `titulo`, a `nomeAutor` , que serão recebidos no corpo da requisição, você deve encontrar no repositório um `id` de um livro igual ao `id` de um livro presente nos parâmetros da rota;
 
