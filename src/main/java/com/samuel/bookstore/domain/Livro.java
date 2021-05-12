@@ -57,11 +57,11 @@ public class Livro implements Serializable{
         this.titulo = titulo;
     }
 
-    public String getNome_autor() {
+    public String getNomeAutor() {
         return nome_autor;
     }
 
-    public void setNome_autor(String nome_autor) {
+    public void setNomeAutor(String nome_autor) {
         this.nome_autor = nome_autor;
     }
 
