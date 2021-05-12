@@ -36,7 +36,8 @@ public class CategoriaResource {
     @GetMapping
     public ResponseEntity<List<CategoriaDTO>> findAll() {
         List<Categoria> list = service.findAll();
-        List<CategoriaDTO> listDTO = list.stream().map(categoria-> new CategoriaDTO(categoria)).collect(Collectors.toList());
+        List<CategoriaDTO> listDTO = list.stream().map(categoria -> new CategoriaDTO(categoria))
+                .collect(Collectors.toList());
         return ResponseEntity.ok().body(listDTO);
     }
 
