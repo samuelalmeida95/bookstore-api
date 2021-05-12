@@ -26,4 +26,9 @@ public class LivroService {
         return repository.findAll();
     }
 
+    public Livro create(Livro livro) {
+        livro.setId(null);
+        return repository.save(livro);
+    }
+
 }
