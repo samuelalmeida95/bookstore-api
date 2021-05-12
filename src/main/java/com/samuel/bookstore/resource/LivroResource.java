@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import com.samuel.bookstore.domain.Livro;
 import com.samuel.bookstore.dtos.LivroDTO;
 import com.samuel.bookstore.services.LivroService;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -27,10 +30,11 @@ public class LivroResource {
     @Autowired
     private LivroService service;
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Livro> findById(@PathVariable Integer id){
-        Livro obj = service.findById(id);
-        return ResponseEntity.ok(obj);
+    @GetMapping(value = "/{idLivro}")
+    public ResponseEntity<LivroDTO> findById(@PathVariable Integer idLivro){
+        Livro livro = service.findById(idLivro);
+        LivroDTO livroDTO = new LivroDTO(livro);
+        return ResponseEntity.ok(livroDTO);
     }
 
     @GetMapping
@@ -40,29 +44,36 @@ public class LivroResource {
         return ResponseEntity.ok().body(listDTO);    
     }
 
-    @PostMapping
-    public ResponseEntity<Livro> create(@RequestBody Livro livro) {
-        livro = service.create(livro);
+    @PostMapping(value = "/cadastrar")
+    public ResponseEntity<Livro> create(
+        @RequestParam(value = "categoria", defaultValue = "0") Integer idCategoria,
+        @Valid  @RequestBody Livro livro) {
+
+        Livro newLivro = service.create(idCategoria, livro);
 
         URI uri = ServletUriComponentsBuilder
-                  .fromCurrentRequest()
-                  .path("{id}")
-                  .buildAndExpand(livro.getId())
-                  .toUri();
+        .fromCurrentContextPath()
+        .path("/livros/{id}")
+        .buildAndExpand(newLivro.getId())
+        .toUri();
 
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<LivroDTO> update(@PathVariable Integer id, @RequestBody LivroDTO livroDTO){
-        Livro newLivro = service.update(id, livroDTO);
-        return ResponseEntity.ok().body(new LivroDTO(newLivro));
+    @PutMapping(value = "/{idLivro}")
+    public ResponseEntity<Livro> update(
+        @PathVariable Integer idCategoria, 
+        @PathVariable Integer idLivro,
+        @RequestBody Livro livro) {
+
+        Livro newLivro = service.update(idCategoria, idLivro, livro);
+        return ResponseEntity.ok().body(newLivro);
     }
 
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        service.delete(id);
+    @DeleteMapping(value = "/{idLivro}")
+    public ResponseEntity<Void> delete(@PathVariable Integer idLivro) {
+        service.delete(idLivro);
         return ResponseEntity.noContent().build();
     }
 }
