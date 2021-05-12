@@ -1,5 +1,6 @@
 package com.samuel.bookstore.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.samuel.bookstore.domain.Livro;
@@ -19,6 +20,10 @@ public class LivroService {
         Optional<Livro> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado!  Id: " + id + " Tipo: " + Livro.class.getName()));
+    }
+
+    public List<Livro> findAll() {
+        return repository.findAll();
     }
 
 }

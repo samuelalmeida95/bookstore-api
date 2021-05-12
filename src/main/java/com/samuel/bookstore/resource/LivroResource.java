@@ -1,5 +1,7 @@
 package com.samuel.bookstore.resource;
 
+import java.util.List;
+
 import com.samuel.bookstore.domain.Livro;
 import com.samuel.bookstore.services.LivroService;
 
@@ -17,10 +19,17 @@ public class LivroResource {
     @Autowired
     private LivroService service;
 
-    @GetMapping
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Livro> findById(@PathVariable Integer id){
         Livro obj = service.findById(id);
         return ResponseEntity.ok(obj);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Livro>> findAll() {
+        List<Livro> list = service.findAll();
+        return ResponseEntity.ok().body(list);
+        
     }
 
 }
