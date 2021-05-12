@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.samuel.bookstore.domain.Categoria;
 
-public class CategoriaDTO implements Serializable{
+public class CategoriaDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
