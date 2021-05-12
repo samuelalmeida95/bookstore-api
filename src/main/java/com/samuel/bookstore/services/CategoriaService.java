@@ -7,7 +7,6 @@ import com.samuel.bookstore.domain.Categoria;
 import com.samuel.bookstore.dtos.CategoriaDTO;
 import com.samuel.bookstore.repositories.CategoriaRepository;
 import com.samuel.bookstore.services.exceptions.ObjectNotFoundException;
-import com.samuel.bookstore.services.exceptions.DataIntegrityValidationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
