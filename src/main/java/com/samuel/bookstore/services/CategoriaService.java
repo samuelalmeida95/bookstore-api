@@ -7,8 +7,10 @@ import com.samuel.bookstore.domain.Categoria;
 import com.samuel.bookstore.dtos.CategoriaDTO;
 import com.samuel.bookstore.repositories.CategoriaRepository;
 import com.samuel.bookstore.services.exceptions.ObjectNotFoundException;
+import com.samuel.bookstore.services.exceptions.DataIntegrityValidationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -39,10 +41,15 @@ public class CategoriaService {
         obj.setDescricao(objDto.getDescricao());
         return repository.save(obj);
     }
-    
+
     public void delete(Integer id) {
         findById(id);
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityViolationException("Categoria não pode ser deletada, possui livros associados");
+        }
     }
 
 }
