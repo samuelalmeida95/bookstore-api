@@ -1,7 +1,7 @@
 
-<h1> 💻 Sobre o desafio </h1>
+<h1 align="center"> 💻 Sobre o desafio </h1>
 
-Nesse desafio, tive que criar uma aplicação para treinar a construção de uma api com `Spring Boot!`
+Nesse desafio, tive que criar uma aplicação para treinar a construção de uma api com `Spring Boot!` ☕
 
 Em resumo precisei criar uma `API REST, usando o Spring Boot com persistência usando JPA num banco de dados postgreSQL.`
 
