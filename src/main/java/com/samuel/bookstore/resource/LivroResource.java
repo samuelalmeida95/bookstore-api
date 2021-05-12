@@ -1,8 +1,10 @@
 package com.samuel.bookstore.resource;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.samuel.bookstore.domain.Livro;
+import com.samuel.bookstore.dtos.LivroDTO;
 import com.samuel.bookstore.services.LivroService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +28,12 @@ public class LivroResource {
     }
 
     @GetMapping
-    public ResponseEntity<List<Livro>> findAll() {
+    public ResponseEntity<List<LivroDTO>> findAll() {
         List<Livro> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        List<LivroDTO> listDTO = list.stream().map(livro -> new LivroDTO(livro)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
         
     }
+    
 
 }
