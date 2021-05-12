@@ -9,8 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Categoria implements Serializable{
@@ -21,7 +24,13 @@ public class Categoria implements Serializable{
     @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotEmpty(message = "Campo NOME é obrigatório!") 
+    @Length(min = 3, max = 100, message = "Campo NOME deve ter entre 3 e 100 caracteres")
     private String nome;
+
+    @NotEmpty(message = "Campo NOME é obrigatório!") 
+    @Length(min = 3, max = 100, message = "Campo NOME deve ter entre 3 e 100 caracteres")
     private String descricao;
 
     @OneToMany(mappedBy = "categoria") // um para muitos
