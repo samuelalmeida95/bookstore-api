@@ -20,7 +20,7 @@ public class Livro implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
-    private String nome_autor;
+    private String nomeAutor;
     private String texto;
 
     @JsonIgnore
@@ -28,11 +28,11 @@ public class Livro implements Serializable{
     @JoinColumn(name = "categoria_id") //coluna de juncao
     private Categoria categoria;
 
-    public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
+    public Livro(Integer id, String titulo, String nomeAutor, String texto, Categoria categoria) {
         
         this.id = id;
         this.titulo = titulo;
-        this.nome_autor = nome_autor;
+        this.nomeAutor = nomeAutor;
         this.texto = texto;
         this.categoria = categoria;
     }
@@ -58,11 +58,11 @@ public class Livro implements Serializable{
     }
 
     public String getNomeAutor() {
-        return nome_autor;
+        return nomeAutor;
     }
 
-    public void setNomeAutor(String nome_autor) {
-        this.nome_autor = nome_autor;
+    public void setNomeAutor(String nomeAutor) {
+        this.nomeAutor = nomeAutor;
     }
 
     public String getTexto() {
