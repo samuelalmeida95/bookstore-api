@@ -3,7 +3,7 @@
 
 Nesse desafio, tive que criar uma aplicação para treinar a construção de uma api com `Spring Boot!` ☕
 
-Em resumo precisei criar uma `API REST, usando o Spring Boot com persistência usando JPA num banco de dados postgreSQL.`
+Em resumo precisei criar uma API REST, usando o `Spring Boot` com persistência usando `JPA` num banco de dados `postgreSQL.` 
 
 Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`categoria`**, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser **`removida`** caso não exista nenhum livro associado.
 
