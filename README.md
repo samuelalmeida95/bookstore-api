@@ -10,12 +10,13 @@
 
 <hr>
 
- >Status do Desafio: **`Concluido`** ✔
- 
-<hr>
 <div align="justfy"> 
  Olá!  Em resumo precisei criar uma API REST, usando o Spring Boot com persistência usando JPA num banco de dados postgreSQL. Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.
 </div>
+
+<hr>
+
+ >Status do Desafio: **`Concluido`** ✔
 
  <h2 align="center">🏁 A API deve disponibilizar: </h2>
  
