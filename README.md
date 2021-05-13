@@ -37,6 +37,7 @@ Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`ca
 
 - **`DELETE /livros/:id`**: A rota deve deletar o livro com o `id` de um livro presente nos parâmetros da rota.
 
+<hr>
 
 ### 🚀 Funcionalidades criadas
 
