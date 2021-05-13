@@ -10,7 +10,7 @@
 
 <hr>
 
- Status do Desafio: **`Concluido`** :heavy_check_mark:
+ >Status do Desafio: **`Concluido`** ✔
  
 <hr>
 <div align="justfy"> 
