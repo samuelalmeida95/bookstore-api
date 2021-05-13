@@ -29,9 +29,9 @@ Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`ca
 
 - **`POST /livros/cadastrar?categoria=1`**: A rota deve receber `titulo` e `nomeAutor` dentro do corpo da requisição, certifique-se de que o livro irá pertencer a alguma categoria, um livro não pode ser criado sem uma categoria.  
 
-- **`GET/livros/1`**: Rota que lista um livro pelo seu `id`.
+- **`GET /livros/1`**: Rota que lista um livro pelo seu `id`.
 
-- **`GET/livros`**: Rota que lista todos os `livros`, certifique-se de que apenas o `titulo` e o `nomeAutor` do livro estarão na resposta, ou seja, a resposta não pode conter o id e o texto do livro, para isso você deve implementar um **` DTO`** para livro;
+- **`GET /livros`**: Rota que lista todos os `livros`, certifique-se de que apenas o `titulo` e o `nomeAutor` do livro estarão na resposta, ou seja, a resposta não pode conter o id e o texto do livro, para isso você deve implementar um **` DTO`** para livro;
 
 - **`PUT /livros/:id`**: A rota deve alterar apenas o `titulo`, a `nomeAutor` , que serão recebidos no corpo da requisição, você deve encontrar no repositório um `id` de um livro igual ao `id` de um livro presente nos parâmetros da rota;
 
