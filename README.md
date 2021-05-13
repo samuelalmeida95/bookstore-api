@@ -1,17 +1,42 @@
 
-<h1 align="center"> 💻 Sobre o desafio </h1>
+<h1 align="center"> 💻 Sobre o desafio </h1> 
 
-> Status do Desafio: Concluido :heavy_check_mark:
+<div align="center" > 
+    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white"/>
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+</div>
 
-Nesse desafio, tive que criar uma aplicação para treinar a construção de uma api com `Spring Boot!` ☕
+<hr>
 
-Em resumo precisei criar uma API REST, usando o `Spring Boot` com persistência usando `JPA` num banco de dados `postgreSQL.` 
+ Status do Desafio: **`Concluido`** :heavy_check_mark:
+ 
+<hr>
+<div align="justfy"> 
+ Olá!  Em resumo precisei criar uma API REST, usando o Spring Boot com persistência usando JPA num banco de dados postgreSQL. Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.
+</div>
 
-Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`categoria`**, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser **`removida`** caso não exista nenhum livro associado.
+ <h2 align="center">🏁 A API deve disponibilizar: </h2>
+ 
+
+ 
+ ### 🚀 Funcionalidades 
+> - [x] Cadastro de categoria
+> - [x] Listagem de categoria
+> - [x] Listagem de categoria por `id`
+> - [x] Alteração de categoria por `id`
+> - [x] Remoção de categoria por `id`
 
 
-## 🏁 A API deve disponibilizar os seguintes recursos: 
+> - [x] Cadastro de livro
+> - [x] Listagem de livro
+> - [x] Listagem de livro por `id`
+> - [x] Alteração de livro por `id`
+> - [x] Remoção de livro por `id` 
 
+
+<hr>
 
 ### 👉 Rotas da aplicação para uma Categoria 
 
@@ -39,23 +64,6 @@ Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`ca
 
 - **`DELETE /livros/:id`**: A rota deve deletar o livro com o `id` de um livro presente nos parâmetros da rota.
 
-<hr>
-
-### 🚀 Funcionalidades criadas 
-> - [x] Cadastro de categoria
-> - [x] Listagem de categoria
-> - [x] Listagem de categoria por `id`
-> - [x] Alteração de categoria por `id`
-> - [x] Remoção de categoria por `id`
 
 
-
-> - [x] Cadastro de livro
-> - [x] Listagem de livro
-> - [x] Listagem de livro por `id`
-> - [x] Alteração de livro por `id`
-> - [x] Remoção de livro por `id`  </p>
-
-
-
-
+ 
