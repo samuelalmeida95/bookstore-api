@@ -27,7 +27,7 @@
 
  
  ### 🚀 Funcionalidades 
- ```
+ ```php
  [x] Cadastro de categoria
  [x] Listagem de categoria
  [x] Listagem de categoria por idCategoria
