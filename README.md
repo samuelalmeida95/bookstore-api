@@ -1,6 +1,8 @@
 
 <h1 align="center"> 💻 Sobre o desafio </h1> 
 
+
+
 <div align="center" > 
     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
     <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"/>
@@ -8,13 +10,15 @@
     <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
 </div>
 
-<hr>
+</br>
 
-<div align="justfy"> 
- Olá!  Em resumo precisei criar uma API REST, usando o Spring Boot com persistência usando JPA num banco de dados postgreSQL. Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.
-</div>
 
-<hr>
+
+
+>Olá! Em resumo precisei criar uma API REST, usando o`Spring Boot`com persistência usando`JPA`um banco de dados`postgreSQL.`Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.
+
+</br>
+
 
  >Status do Desafio: **`Concluido`** ✔
 
@@ -23,19 +27,20 @@
 
  
  ### 🚀 Funcionalidades 
-> - [x] Cadastro de categoria
-> - [x] Listagem de categoria
-> - [x] Listagem de categoria por `id`
-> - [x] Alteração de categoria por `id`
-> - [x] Remoção de categoria por `id`
+ ```
+ [x] Cadastro de categoria
+ [x] Listagem de categoria
+ [x] Listagem de categoria por idCategoria
+ [x] Alteração de categoria por idCategoria
+ [x] Remoção de categoria por idCategoria
 
 
-> - [x] Cadastro de livro
-> - [x] Listagem de livro
-> - [x] Listagem de livro por `id`
-> - [x] Alteração de livro por `id`
-> - [x] Remoção de livro por `id` 
-
+ [x] Cadastro de livro
+ [x] Listagem de livro
+ [x] Listagem de livro por idLivro
+ [x] Alteração de livro por idLivro
+ [x] Remoção de livro por idLivro
+```
 
 <hr>
 
