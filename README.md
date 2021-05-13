@@ -28,18 +28,18 @@
  
  ### 🚀 Funcionalidades 
  ```php
- [x] Cadastro de categoria
- [x] Listagem de categoria
- [x] Listagem de categoria por idCategoria
- [x] Alteração de categoria por idCategoria
- [x] Remoção de categoria por idCategoria
+ [✔] Cadastro de categoria
+ [✔] Listagem de categoria
+ [✔] Listagem de categoria por idCategoria
+ [✔] Alteração de categoria por idCategoria
+ [✔] Remoção de categoria por idCategoria
 
 
- [x] Cadastro de livro
- [x] Listagem de livro
- [x] Listagem de livro por idLivro
- [x] Alteração de livro por idLivro
- [x] Remoção de livro por idLivro
+ [✔] Cadastro de livro
+ [✔] Listagem de livro
+ [✔] Listagem de livro por idLivro
+ [✔] Alteração de livro por idLivro
+ [✔] Remoção de livro por idLivro
 ```
 
 <hr>
