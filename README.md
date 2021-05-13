@@ -1,6 +1,8 @@
 
 <h1 align="center"> 💻 Sobre o desafio </h1>
 
+> Status do Desafio: Concluido :heavy_check_mark:
+
 Nesse desafio, tive que criar uma aplicação para treinar a construção de uma api com `Spring Boot!` ☕
 
 Em resumo precisei criar uma API REST, usando o `Spring Boot` com persistência usando `JPA` num banco de dados `postgreSQL.` 
@@ -39,21 +41,20 @@ Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`ca
 
 <hr>
 
-### 🚀 Funcionalidades criadas
+### 🚀 Funcionalidades criadas 
+> - [x] Cadastro de categoria
+> - [x] Listagem de categoria
+> - [x] Listagem de categoria por `id`
+> - [x] Alteração de categoria por `id`
+> - [x] Remoção de categoria por `id`
 
-- [x] Cadastro de categoria
-- [x] Listagem de categoria
-- [x] Listagem de categoria por `id`
-- [x] Alteração de categoria por `id`
-- [x] Remoção de categoria por `id`
 
-<hr>
 
-- [x] Cadastro de livro
-- [x] Listagem de livro
-- [x] Listagem de livro por `id`
-- [x] Alteração de livro por `id`
-- [x] Remoção de livro por `id` 
+> - [x] Cadastro de livro
+> - [x] Listagem de livro
+> - [x] Listagem de livro por `id`
+> - [x] Alteração de livro por `id`
+> - [x] Remoção de livro por `id`  </p>
 
 
 
