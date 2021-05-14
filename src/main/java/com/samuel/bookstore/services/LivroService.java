@@ -3,8 +3,8 @@ package com.samuel.bookstore.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.samuel.bookstore.domain.Categoria;
-import com.samuel.bookstore.domain.Livro;
+import com.samuel.bookstore.model.Categoria;
+import com.samuel.bookstore.model.Livro;
 import com.samuel.bookstore.repositories.LivroRepository;
 import com.samuel.bookstore.services.exceptions.ObjectNotFoundException;
 

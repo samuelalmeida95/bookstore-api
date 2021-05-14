@@ -2,7 +2,7 @@ package com.samuel.bookstore.dtos;
 
 import java.io.Serializable;
 
-import com.samuel.bookstore.domain.Livro;
+import com.samuel.bookstore.model.Livro;
 
 public class LivroDTO  implements Serializable{
     

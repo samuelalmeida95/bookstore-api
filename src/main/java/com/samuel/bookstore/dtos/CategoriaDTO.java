@@ -2,7 +2,7 @@ package com.samuel.bookstore.dtos;
 
 import java.io.Serializable;
 
-import com.samuel.bookstore.domain.Categoria;
+import com.samuel.bookstore.model.Categoria;
 
 public class CategoriaDTO implements Serializable {
 
