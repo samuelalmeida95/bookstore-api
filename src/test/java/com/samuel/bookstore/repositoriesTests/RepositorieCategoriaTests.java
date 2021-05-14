@@ -1,5 +1,7 @@
 package com.samuel.bookstore.repositoriesTests;
 
+import java.util.Optional;
+
 import com.samuel.bookstore.model.Categoria;
 import com.samuel.bookstore.repositories.CategoriaRepository;
 
@@ -18,7 +20,7 @@ public class RepositorieCategoriaTests {
 
     @Test
     @DisplayName("Salvar e persistir categoria quando bem sucedido")
-    void salva_PersistirCategoriaQuandoBemSucedido(){
+    void salvar_PersistirCategoriaQuandoBemSucedido(){
         Categoria categoriaParaSerSalva = criarCategoria();
         Categoria categoriaSalva = this.categoriaRepository.save(categoriaParaSerSalva);
 
@@ -32,7 +34,7 @@ public class RepositorieCategoriaTests {
 
     @Test
     @DisplayName("Salvar e atualizar categoria quando bem sucedido")
-    void salva_AtualizarCategoriaQuandoBemSucedido(){
+    void salvar_AtualizarCategoriaQuandoBemSucedido(){
         Categoria categoriaParaSerSalva = criarCategoria();
 
         Categoria categoriaSalva = this.categoriaRepository.save(categoriaParaSerSalva);
@@ -45,6 +47,40 @@ public class RepositorieCategoriaTests {
         Assertions.assertThat(categoriaAtulizada.getId()).isNotNull();
         Assertions.assertThat(categoriaAtulizada.getNome()).isEqualTo(categoriaSalva.getNome());
   
+    }
+
+    @Test
+    @DisplayName("Deletar e remover categoria quando bem sucedido")
+    void deletar_RemoverCategoriaQuandoBemSucedido(){
+        Categoria categoriaParaSerSalva = criarCategoria();
+
+        Categoria categoriaSalva = this.categoriaRepository.save(categoriaParaSerSalva);
+
+        this.categoriaRepository.delete(categoriaSalva);
+
+        Optional<Categoria> categoriaOptional = this.categoriaRepository.findById(categoriaSalva.getId());
+
+        Assertions.assertThat(categoriaOptional).isEmpty();
+  
+    }
+
+    @Test
+    @DisplayName("Encontrar categoria por id quando bem sucedido")
+    void encontrar_PorIdCategoriaQuandoBemSucedido(){
+        Categoria categoriaParaSerSalva = criarCategoria();
+
+        Categoria categoriaSalva = this.categoriaRepository.save(categoriaParaSerSalva);
+
+        Optional<Categoria> categoriaOptional = this.categoriaRepository.findById(categoriaSalva.getId());
+
+        Assertions.assertThat(categoriaOptional).isNotEmpty();
+        Assertions.assertThat(categoriaOptional).contains(categoriaSalva);
+
+        System.out.println(categoriaSalva.getNome());
+        
+        System.out.println(categoriaSalva.getDescricao());
+
+        System.out.println(categoriaSalva.getId());
     }
 
 
