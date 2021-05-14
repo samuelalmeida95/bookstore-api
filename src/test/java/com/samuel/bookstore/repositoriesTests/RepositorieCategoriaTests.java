@@ -75,12 +75,15 @@ public class RepositorieCategoriaTests {
 
         Assertions.assertThat(categoriaOptional).isNotEmpty();
         Assertions.assertThat(categoriaOptional).contains(categoriaSalva);
+    }
 
-        System.out.println(categoriaSalva.getNome());
-        
-        System.out.println(categoriaSalva.getDescricao());
+    @Test
+    @DisplayName("Encontrar por id retorna empty quando nao for encontrado")
+    void encontrar_PorIdRetornarEmptyQuandoNaoEncontrado(){
 
-        System.out.println(categoriaSalva.getId());
+        Optional<Categoria> categoriaOptional = this.categoriaRepository.findById(-1);
+
+        Assertions.assertThat(categoriaOptional).isEmpty();
     }
 
 
