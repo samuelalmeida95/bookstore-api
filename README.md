@@ -1,15 +1,48 @@
 
-<h1 align="center"> 💻 Sobre o desafio </h1>
-
-Nesse desafio, tive que criar uma aplicação para treinar a construção de uma api com `Spring Boot!` ☕
-
-Em resumo precisei criar uma API REST, usando o `Spring Boot` com persistência usando `JPA` num banco de dados `postgreSQL.` 
-
-Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`categoria`**, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser **`removida`** caso não exista nenhum livro associado.
+<h1 align="center"> 💻 Sobre o desafio </h1> 
 
 
-## 🏁 A API deve disponibilizar os seguintes recursos: 
 
+<div align="center" > 
+    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white"/>
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+</div>
+
+</br>
+
+
+
+
+>Olá! Neste desafio precisei criar uma API REST, usando o `Spring Boot` com persistência usando `JPA` um banco de dados `postgreSQL.` Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.
+
+</br>
+
+
+ >Status do Desafio: **`Concluido`** ✔
+
+ <h2 align="center">🏁 A API deve disponibilizar: </h2>
+ 
+
+ 
+ ### 🚀 Funcionalidades 
+ ```php
+ [✔] Cadastro de categoria
+ [✔] Listagem de categoria
+ [✔] Listagem de categoria por idCategoria
+ [✔] Alteração de categoria por idCategoria
+ [✔] Remoção de categoria por idCategoria
+
+
+ [✔] Cadastro de livro
+ [✔] Listagem de livro
+ [✔] Listagem de livro por idLivro
+ [✔] Alteração de livro por idLivro
+ [✔] Remoção de livro por idLivro
+```
+
+<hr>
 
 ### 👉 Rotas da aplicação para uma Categoria 
 
@@ -29,32 +62,14 @@ Essa será uma aplicação para armazenar **`livros`** que pertencem a uma **`ca
 
 - **`POST /livros/cadastrar?categoria=1`**: A rota deve receber `titulo` e `nomeAutor` dentro do corpo da requisição, certifique-se de que o livro irá pertencer a alguma categoria, um livro não pode ser criado sem uma categoria.  
 
-- **`GET/livros/1`**: Rota que lista um livro pelo seu `id`.
+- **`GET /livros/1`**: Rota que lista um livro pelo seu `id`.
 
-- **`GET/livros`**: Rota que lista todos os `livros`, certifique-se de que apenas o `titulo` e o `nomeAutor` do livro estarão na resposta, ou seja, a resposta não pode conter o id e o texto do livro, para isso você deve implementar um **` DTO`** para livro;
+- **`GET /livros`**: Rota que lista todos os `livros`, certifique-se de que apenas o `titulo` e o `nomeAutor` do livro estarão na resposta, ou seja, a resposta não pode conter o id e o texto do livro, para isso você deve implementar um **` DTO`** para livro;
 
 - **`PUT /livros/:id`**: A rota deve alterar apenas o `titulo`, a `nomeAutor` , que serão recebidos no corpo da requisição, você deve encontrar no repositório um `id` de um livro igual ao `id` de um livro presente nos parâmetros da rota;
 
 - **`DELETE /livros/:id`**: A rota deve deletar o livro com o `id` de um livro presente nos parâmetros da rota.
 
-<hr>
-
-### 🚀 Funcionalidades criadas
-
-- [x] Cadastro de categoria
-- [x] Listagem de categoria
-- [x] Listagem de categoria por `id`
-- [x] Alteração de categoria por `id`
-- [x] Remoção de categoria por `id`
-
-<hr>
-
-- [x] Cadastro de livro
-- [x] Listagem de livro
-- [x] Listagem de livro por `id`
-- [x] Alteração de livro por `id`
-- [x] Remoção de livro por `id` 
 
 
-
-
+ 
