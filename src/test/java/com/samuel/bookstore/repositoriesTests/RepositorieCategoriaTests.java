@@ -30,6 +30,23 @@ public class RepositorieCategoriaTests {
   
     }
 
+    @Test
+    @DisplayName("Salvar e atualizar categoria quando bem sucedido")
+    void salva_AtualizarCategoriaQuandoBemSucedido(){
+        Categoria categoriaParaSerSalva = criarCategoria();
+
+        Categoria categoriaSalva = this.categoriaRepository.save(categoriaParaSerSalva);
+
+        categoriaSalva.setNome("Auto Ajuda");
+
+        Categoria categoriaAtulizada = this.categoriaRepository.save(categoriaSalva);
+
+        Assertions.assertThat(categoriaAtulizada).isNotNull();
+        Assertions.assertThat(categoriaAtulizada.getId()).isNotNull();
+        Assertions.assertThat(categoriaAtulizada.getNome()).isEqualTo(categoriaSalva.getNome());
+  
+    }
+
 
     private Categoria criarCategoria(){
         Categoria cat = new Categoria(null, "Testes", "Aprendendo sobre testes");
