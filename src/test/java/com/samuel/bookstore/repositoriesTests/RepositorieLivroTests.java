@@ -1,5 +1,7 @@
 package com.samuel.bookstore.repositoriesTests;
 
+import java.util.Optional;
+
 import javax.validation.ConstraintViolationException;
 
 import com.samuel.bookstore.model.Categoria;
@@ -55,6 +57,36 @@ public class RepositorieLivroTests {
         Assertions.assertThat(livroAtualizado).isNotNull();
         Assertions.assertThat(livroAtualizado.getId()).isNotNull();
         Assertions.assertThat(livroAtualizado.getTitulo()).isEqualTo(livroSalvo.getTitulo());
+    }
+
+    @Test
+    @DisplayName("Deletar e remover categoria quando bem sucedido")
+    void deletar_RemoverCategoriaQuandoBemSucedido(){
+        Livro livroParaSalvar = criarLivro();
+
+        Livro livroSalvo = this.livroRepository.save(livroParaSalvar);
+
+        this.livroRepository.delete(livroSalvo);
+
+        Optional<Livro> livroOptional = this.livroRepository.findById(livroSalvo.getId());
+
+        Assertions.assertThat(livroOptional).isEmpty();
+  
+    }
+
+    
+    @Test
+    @DisplayName("Encontrar livro por id quando bem sucedido")
+    void encontrar_PorIdLivroQuandoBemSucedido(){
+        Livro livroParaSalvar = criarLivro();
+
+        Livro livroSalvo = this.livroRepository.save(livroParaSalvar);
+
+        Optional<Livro> livroOptional = this.livroRepository.findById(livroSalvo.getId());
+
+        Assertions.assertThat(livroOptional)
+                  .isNotEmpty()
+                  .contains(livroSalvo);
     }
 
 
