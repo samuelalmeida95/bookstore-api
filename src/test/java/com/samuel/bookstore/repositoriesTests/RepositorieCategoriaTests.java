@@ -2,6 +2,8 @@ package com.samuel.bookstore.repositoriesTests;
 
 import java.util.Optional;
 
+import javax.validation.ConstraintViolationException;
+
 import com.samuel.bookstore.model.Categoria;
 import com.samuel.bookstore.repositories.CategoriaRepository;
 
@@ -30,6 +32,15 @@ public class RepositorieCategoriaTests {
         Assertions.assertThat(categoriaSalva.getDescricao()).isNotNull();
         Assertions.assertThat(categoriaSalva.getNome()).isEqualTo(categoriaParaSerSalva.getNome());
   
+    }
+
+    @Test
+    @DisplayName("Salvar throw ConstraintViolationException quando nome for vazio")
+    void salvar_ConstraintViolationExceptionQuandoNomeEVazio(){
+        Categoria categoria =  new Categoria();
+        
+        Assertions.assertThatThrownBy(() -> this.categoriaRepository.save(categoria))
+                  .isInstanceOf(ConstraintViolationException.class);
     }
 
     @Test
@@ -73,8 +84,10 @@ public class RepositorieCategoriaTests {
 
         Optional<Categoria> categoriaOptional = this.categoriaRepository.findById(categoriaSalva.getId());
 
-        Assertions.assertThat(categoriaOptional).isNotEmpty();
-        Assertions.assertThat(categoriaOptional).contains(categoriaSalva);
+        Assertions.assertThat(categoriaOptional)
+                  .isNotEmpty()
+                  .contains(categoriaSalva);
+       
     }
 
     @Test
