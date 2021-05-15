@@ -34,11 +34,15 @@ public class CategoriaControllerTest {
     void setUp() {
         
         List<Categoria> categorias = new LinkedList<>(List.of(CategoriaCreator.criarCategoria()));
-        BDDMockito.when(categoriaServiceMock.findAll())
-                  .thenReturn(categorias);
+        BDDMockito.when(categoriaServiceMock.findAll()).thenReturn(categorias);
 
         BDDMockito.when(categoriaServiceMock.findById(ArgumentMatchers.anyInt()))
-                  .thenReturn(CategoriaCreator.criarCategoria());          
+                .thenReturn(CategoriaCreator.criarCategoria());
+
+        BDDMockito.when(categoriaServiceMock.create(ArgumentMatchers.any(Categoria.class)))
+                .thenReturn(CategoriaCreator.criarCategoria());
+
+ 
     }
 
     @Test
@@ -68,6 +72,17 @@ public class CategoriaControllerTest {
         Assertions.assertThat(categoria.getId()).isNotNull().isEqualTo(expectedId);
     }
 
+    @Test
+    @DisplayName("Salva uma categoria quando bem sucedido")
+    void salva_CategoriaQuandoBemSucedido() {
+     
+        Categoria categoria = categoriaController.create(CategoriaCreator.criarCategoria());
 
+        String nomeCategoria = categoria.getNome();
+        Integer idCategoria = categoria.getId();
 
+        Assertions.assertThat(categoria).isNotNull();
+        Assertions.assertThat(nomeCategoria).isEqualTo(CategoriaCreator.criarCategoria().getNome());
+        Assertions.assertThat(idCategoria).isEqualTo(CategoriaCreator.criarCategoria().getId());
+    }
 }
