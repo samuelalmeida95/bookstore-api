@@ -45,9 +45,6 @@ public class CategoriaControllerTest {
                 .thenReturn(CategoriaCreator.criarCategoria());
 
         BDDMockito.doNothing().when(categoriaServiceMock).delete(ArgumentMatchers.anyInt());
-
-        BDDMockito.when(categoriaServiceMock.update(2, CategoriaCreator.criarCategoriaDTO()))
-        .thenReturn(CategoriaCreator.criarCategoria());
             
     }
 
