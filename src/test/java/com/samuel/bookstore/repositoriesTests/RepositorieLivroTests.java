@@ -1,5 +1,7 @@
 package com.samuel.bookstore.repositoriesTests;
 
+import javax.validation.ConstraintViolationException;
+
 import com.samuel.bookstore.model.Categoria;
 import com.samuel.bookstore.model.Livro;
 import com.samuel.bookstore.repositories.LivroRepository;
@@ -30,6 +32,31 @@ public class RepositorieLivroTests {
         Assertions.assertThat(livroSalvo.getTitulo()).isEqualTo(livroParaSalvar.getTitulo());
 
     }
+
+    @Test
+    @DisplayName("Salvar throw ConstraintViolationException quando titulo for vazio")
+    void salvar_ConstraintViolationExceptionQuandoTituloEVazio(){
+        Livro livro =  new Livro();
+        
+        Assertions.assertThatThrownBy(() -> this.livroRepository.save(livro))
+                  .isInstanceOf(ConstraintViolationException.class);
+    }
+    
+    @Test
+    @DisplayName("Salvar e atualizar livro quando bem sucedido")
+    void salvar_AtualizaLivroQuandoBemSucedido() {
+        Livro livroParaSalvar = criarLivro();
+        Livro livroSalvo = this.livroRepository.save(livroParaSalvar);
+
+        livroSalvo.setTitulo("Clean Code");
+
+        Livro livroAtualizado = this.livroRepository.save(livroSalvo);
+
+        Assertions.assertThat(livroAtualizado).isNotNull();
+        Assertions.assertThat(livroAtualizado.getId()).isNotNull();
+        Assertions.assertThat(livroAtualizado.getTitulo()).isEqualTo(livroSalvo.getTitulo());
+    }
+
 
     private Livro criarLivro() {
         Categoria cat = new Categoria(null, "Livros de Java" , "Aprendendo JAVA");
