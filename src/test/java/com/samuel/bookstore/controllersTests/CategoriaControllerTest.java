@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -33,9 +34,11 @@ public class CategoriaControllerTest {
     void setUp() {
         
         List<Categoria> categorias = new LinkedList<>(List.of(CategoriaCreator.criarCategoria()));
-    
-        BDDMockito.when(categoriaServiceMock.findAll()).thenReturn(categorias);
-      
+        BDDMockito.when(categoriaServiceMock.findAll())
+                  .thenReturn(categorias);
+
+        BDDMockito.when(categoriaServiceMock.findById(ArgumentMatchers.anyInt()))
+                  .thenReturn(CategoriaCreator.criarCategoria());          
     }
 
     @Test
@@ -45,13 +48,26 @@ public class CategoriaControllerTest {
 
         List<CategoriaDTO> categorias = categoriaController.findAll().getBody();
 
-        Assertions.assertThat(categorias).isNotNull();
-
-        Assertions.assertThat(categorias).isNotEmpty();
+        Assertions.assertThat(categorias)
+                  .isNotNull()
+                  .isNotEmpty()
+                  .hasSize(1);
 
         Assertions.assertThat(categorias.get(0).getNome()).isEqualTo(expectedName);
-
-      
     }
+
+    @Test
+    @DisplayName("Encontra por id uma categoria quando bem sucedido")
+    void encontraPorId_RetornaCategoriaQuandoBemSucedido() {
+        Integer expectedId = CategoriaCreator.criarCategoria().getId();
+
+        Categoria categoria = categoriaController.findById(1).getBody();
+
+        Assertions.assertThat(categoria).isNotNull();
+           
+        Assertions.assertThat(categoria.getId()).isNotNull().isEqualTo(expectedId);
+    }
+
+
 
 }
