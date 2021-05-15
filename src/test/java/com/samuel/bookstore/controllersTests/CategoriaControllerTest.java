@@ -18,6 +18,8 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
@@ -42,7 +44,11 @@ public class CategoriaControllerTest {
         BDDMockito.when(categoriaServiceMock.create(ArgumentMatchers.any(Categoria.class)))
                 .thenReturn(CategoriaCreator.criarCategoria());
 
- 
+        BDDMockito.doNothing().when(categoriaServiceMock).delete(ArgumentMatchers.anyInt());
+
+        BDDMockito.when(categoriaServiceMock.update(2, CategoriaCreator.criarCategoriaDTO()))
+        .thenReturn(CategoriaCreator.criarCategoria());
+            
     }
 
     @Test
@@ -79,10 +85,28 @@ public class CategoriaControllerTest {
         Categoria categoria = categoriaController.create(CategoriaCreator.criarCategoria());
 
         String nomeCategoria = categoria.getNome();
+
         Integer idCategoria = categoria.getId();
 
         Assertions.assertThat(categoria).isNotNull();
+
         Assertions.assertThat(nomeCategoria).isEqualTo(CategoriaCreator.criarCategoria().getNome());
+
         Assertions.assertThat(idCategoria).isEqualTo(CategoriaCreator.criarCategoria().getId());
     }
+
+    @Test
+    @DisplayName("deleta uma categoria quando bem sucedido")
+    void deleta_CategoriaQuandoBemSucedido() {
+     
+        Assertions.assertThatCode(() ->  categoriaController.delete(1))
+                  .doesNotThrowAnyException();
+
+        ResponseEntity<Void> entity = categoriaController.delete(1);
+        
+        Assertions.assertThat(entity).isNotNull();
+
+        Assertions.assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+    }
+
 }
