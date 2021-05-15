@@ -89,6 +89,16 @@ public class RepositorieLivroTests {
                   .contains(livroSalvo);
     }
 
+    @Test
+    @DisplayName("Encontrar por id retorna empty quando nao for encontrado")
+    void encontrar_PorIdRetornarEmpytQuandoNaoEncontrado(){
+
+        Optional<Livro> livroOptional = this.livroRepository.findById(0);
+
+        Assertions.assertThat(livroOptional).isEmpty();
+
+
+    }
 
     private Livro criarLivro() {
         Categoria cat = new Categoria(null, "Livros de Java" , "Aprendendo JAVA");
