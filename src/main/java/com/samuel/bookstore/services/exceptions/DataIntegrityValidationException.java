@@ -9,6 +9,5 @@ public class DataIntegrityValidationException extends RuntimeException {
     public DataIntegrityValidationException(String message, Throwable cause) {
         super(message, cause);
     }
-    
-    
+     
 }

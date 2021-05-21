@@ -39,5 +39,4 @@ public class StandardError {
     public void setMessage(String message) {
         this.message = message;
     }
-
 }
