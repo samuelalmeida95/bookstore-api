@@ -14,9 +14,9 @@ public class LivroDTO implements Serializable {
     private String nomeAutor;
 
     public LivroDTO(Livro obj) {
+        this.id = obj.getId();
         this.titulo = obj.getTitulo();
         this.nomeAutor = obj.getNomeAutor();
-        this.id = obj.getId();
     }
 
     public LivroDTO() {
