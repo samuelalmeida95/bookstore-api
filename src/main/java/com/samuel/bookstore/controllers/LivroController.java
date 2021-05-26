@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.samuel.bookstore.domain.Livro;
 import com.samuel.bookstore.dtos.LivroDTO;
+import com.samuel.bookstore.model.Livro;
 import com.samuel.bookstore.services.LivroService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value = "/livros")
-public class LivroResource {
+public class LivroController {
     
     @Autowired
     private LivroService service;
@@ -66,7 +66,7 @@ public class LivroResource {
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping(value = "/{idLivro}")
+    @PutMapping(value = "/{idCategoria}/{idLivro}")
     public ResponseEntity<Livro> update(
         @PathVariable Integer idCategoria, 
         @PathVariable Integer idLivro,

@@ -41,17 +41,17 @@ public class LivroService {
         Optional<Livro> opLivro = repository.findByIdAndCategoriaId(idLivro, idCategoria);
 
         if (opLivro.isPresent()) {
-            Livro newlivro = updateData(opLivro.get(), livro);
+            Livro newlivro = updateData(livro, opLivro.get());
             return repository.save(newlivro);
         }
 
         throw new ObjectNotFoundException("Objeto não encontrado! Id: " + idLivro + ", Tipo: " + Livro.class.getName());
     }
 
-    private Livro updateData(Livro novoLivro, Livro livro) {
-        novoLivro.setTitulo(livro.getTitulo());
-        novoLivro.setNomeAutor(livro.getNomeAutor());
-        return novoLivro;
+    private Livro updateData(Livro livro, Livro novoLivro) {
+        livro.setTitulo(novoLivro.getTitulo());
+        livro.setNomeAutor(novoLivro.getNomeAutor());
+        return livro;
     }
 
     public void delete(Integer idLivro) {
