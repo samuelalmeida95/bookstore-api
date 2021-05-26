@@ -41,7 +41,7 @@ public class LivroService {
         Optional<Livro> opLivro = repository.findByIdAndCategoriaId(idLivro, idCategoria);
 
         if (opLivro.isPresent()) {
-            Livro newlivro = updateData(livro, opLivro.get());
+            Livro newlivro = updateData(opLivro.get(), livro);
             return repository.save(newlivro);
         }
 
