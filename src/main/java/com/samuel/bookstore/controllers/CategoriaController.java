@@ -30,14 +30,19 @@ public class CategoriaController {
     @GetMapping(value = "/{idCategoria}")
     public ResponseEntity<Categoria> findById(@PathVariable Integer idCategoria) {
         Categoria obj = service.findById(idCategoria);
+        
         return ResponseEntity.ok(obj);
     }
 
     @GetMapping
     public ResponseEntity<List<CategoriaDTO>> findAll() {
         List<Categoria> list = service.findAll();
-        List<CategoriaDTO> listDTO = list.stream().map(categoria -> new CategoriaDTO(categoria))
+
+        List<CategoriaDTO> listDTO = list
+                .stream()
+                .map(categoria -> new CategoriaDTO(categoria))
                 .collect(Collectors.toList());
+
         return ResponseEntity.ok().body(listDTO);
     }
 
@@ -50,7 +55,10 @@ public class CategoriaController {
     }
 
     @PutMapping(value = "/{idCategoria}")
-    public ResponseEntity<CategoriaDTO> update(@PathVariable Integer idCategoria, @RequestBody CategoriaDTO objDto) {
+    public ResponseEntity<CategoriaDTO> update(
+        @PathVariable Integer idCategoria, 
+        @RequestBody CategoriaDTO objDto) {
+
         Categoria newObj = service.update(idCategoria, objDto);
         return ResponseEntity.ok().body(new CategoriaDTO(newObj));
     }
@@ -58,6 +66,7 @@ public class CategoriaController {
     @DeleteMapping(value = "/{idCategoria}")
     public ResponseEntity<Void> delete(@PathVariable Integer idCategoria) {
         service.delete(idCategoria);
+
         return ResponseEntity.noContent().build();
     }
 }
