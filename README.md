@@ -21,7 +21,7 @@ Essa será uma aplicação para armazenar livros que pertencem a uma categoria, 
 </br>
 
 
- > <h2>Status do Desafio: <strong>Concluido</strong> ✔</h2>
+ > <h3>Status do Desafio: <strong>Concluido</strong> ✔</h3>
 
  <h2 align="center">🏁 A API deve disponibilizar: </h2>
  
