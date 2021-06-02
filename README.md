@@ -14,34 +14,41 @@
 </br>
 
 
+Olá! Neste desafio precisei criar uma API REST, usando o `Spring Boot` com persistência usando `JPA` um banco de dados `postgreSQL.`
 
-
->Olá! Neste desafio precisei criar uma API REST, usando o `Spring Boot` com persistência usando `JPA` um banco de dados `postgreSQL.` Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.
+Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.
 
 </br>
 
 
- >Status do Desafio: **`Concluido`** ✔
+ > <h2>Status do Desafio: <strong>Concluido</strong> ✔</h2>
 
  <h2 align="center">🏁 A API deve disponibilizar: </h2>
  
 
  
  ### 🚀 Funcionalidades 
- ```php
- [✔] Cadastro de categoria
- [✔] Listagem de categoria
- [✔] Listagem de categoria por idCategoria
- [✔] Alteração de categoria por idCategoria
- [✔] Remoção de categoria por idCategoria
+ 
+ **[✔]** Cadastro de categoria
+ <br>
+ **[✔]** Listagem de categoria
+ <br>
+ **[✔]** Listagem de categoria por idCategoria
+ <br>
+ **[✔]** Alteração de categoria por idCategoria
+ <br>
+ **[✔]** Remoção de categoria por idCategoria
 
 
- [✔] Cadastro de livro
- [✔] Listagem de livro
- [✔] Listagem de livro por idLivro
- [✔] Alteração de livro por idLivro
- [✔] Remoção de livro por idLivro
-```
+ **[✔]** Cadastro de livro
+ <br>
+ **[✔]** Listagem de livro
+ <br>
+ **[✔]** Listagem de livro por idLivro
+ <br>
+ **[✔]** Alteração de livro por idLivro
+ <br>
+ **[✔]** Remoção de livro por idLivro
 
 <hr>
 
