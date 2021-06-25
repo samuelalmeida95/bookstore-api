@@ -12,9 +12,11 @@ import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
+@Data
 public class Livro implements Serializable{
     
     private static final long serialVersionUID = 1L;
@@ -39,79 +41,5 @@ public class Livro implements Serializable{
     @JoinColumn(name = "categoria_id") //coluna de juncao
     private Categoria categoria;
 
-    public Livro(Integer id, String titulo, String nomeAutor, String texto, Categoria categoria) {
-        
-        this.id = id;
-        this.titulo = titulo;
-        this.nomeAutor = nomeAutor;
-        this.texto = texto;
-        this.categoria = categoria;
-    }
-    
-    public Livro(){
-
-    }
-    
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getNomeAutor() {
-        return nomeAutor;
-    }
-
-    public void setNomeAutor(String nomeAutor) {
-        this.nomeAutor = nomeAutor;
-    }
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Livro other = (Livro) obj;
-        if (id != other.id)
-            return false;
-        return true;
-    }
 
 }
