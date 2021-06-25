@@ -15,6 +15,10 @@
 
 Essa será uma aplicação para armazenar livros que pertencem a uma categoria, que irá permitir a criação, listagem, atualização e remoção dos livros, e além disso também irá permitir a criação, listagem, atualização e remoção de categorias, porém uma categoria só pode ser removida caso não exista nenhum livro associado.</i>
 
+<i>Helo! In this challenge I needed to create a REST API, using `Spring Boot` with persistence using `JPA` and a `postgreSQL database.`
+
+This will be an application to store books that belong to a category, which will allow the creation, listing, updating and removal of books, and it will also allow the creation, listing, updating and removal of categories, but a category can only be removed if there is no associated book.</i>
+
 </br>
 
 
