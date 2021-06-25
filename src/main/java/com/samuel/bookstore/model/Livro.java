@@ -12,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import com.samuel.bookstore.audits.TimestampAudit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ import org.hibernate.validator.constraints.Length;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Livro implements Serializable{
+public class Livro extends TimestampAudit {
     
     private static final long serialVersionUID = 1L;
 
