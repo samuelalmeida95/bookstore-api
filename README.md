@@ -77,4 +77,3 @@ This will be an application to store books that belong to a category, which will
 - **`PUT /livros/:id`**: A rota deve alterar apenas o `titulo`, a `nomeAutor` , que serão recebidos no corpo da requisição, você deve encontrar no repositório um `id` de um livro igual ao `id` de um livro presente nos parâmetros da rota;
 
 - **`DELETE /livros/:id`**: A rota deve deletar o livro com o `id` de um livro presente nos parâmetros da rota.
-
