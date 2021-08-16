@@ -1,15 +1,12 @@
 package com.samuel.bookstore.controllers;
 
-import java.net.URI;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.validation.Valid;
-
 import com.samuel.bookstore.dtos.LivroDTO;
 import com.samuel.bookstore.model.Livro;
 import com.samuel.bookstore.services.LivroService;
-
+import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,63 +23,61 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RestController
 @RequestMapping(value = "/livros")
 public class LivroController {
-    
-    @Autowired
-    private LivroService service;
 
-    @GetMapping(value = "/{idLivro}")
-    public ResponseEntity<LivroDTO> findById(@PathVariable Integer idLivro){
-        Livro livro = service.findById(idLivro);
-        LivroDTO livroDTO = new LivroDTO(livro);
+  @Autowired
+  private LivroService service;
 
-        return ResponseEntity.ok(livroDTO);
-    }
+  @GetMapping(value = "/{idLivro}")
+  public ResponseEntity<LivroDTO> findById(@PathVariable Integer idLivro) {
+    Livro livro = service.findById(idLivro);
+    LivroDTO livroDTO = new LivroDTO(livro);
 
-    @GetMapping
-    public ResponseEntity<List<LivroDTO>> findAll() {
-        List<Livro> list = service.findAll();
+    return ResponseEntity.ok(livroDTO);
+  }
 
-        List<LivroDTO> listDTO = list
-                .stream()
-                .map(livro -> new LivroDTO(livro))
-                .collect(Collectors.toList());
+  @GetMapping
+  public ResponseEntity<List<LivroDTO>> findAll() {
+    List<Livro> list = service.findAll();
 
-        return ResponseEntity.ok().body(listDTO);    
-    }
+    List<LivroDTO> listDTO = list
+      .stream()
+      .map(livro -> new LivroDTO(livro))
+      .collect(Collectors.toList());
 
-    @PostMapping(value = "/cadastrar")
-    public ResponseEntity<Livro> create(
-        @RequestParam(value = "categoria", defaultValue = "0") Integer idCategoria,
-        @Valid  @RequestBody Livro livro) {
+    return ResponseEntity.ok().body(listDTO);
+  }
 
-        Livro newLivro = service.create(idCategoria, livro);
+  @PostMapping(value = "/cadastrar")
+  public ResponseEntity<Livro> create(
+    @RequestParam(value = "categoria", defaultValue = "0") Integer idCategoria,
+    @Valid @RequestBody Livro livro
+  ) {
+    Livro newLivro = service.create(idCategoria, livro);
 
-        URI uri = ServletUriComponentsBuilder
-        .fromCurrentContextPath()
-        .path("/livros/{id}")
-        .buildAndExpand(newLivro.getId())
-        .toUri();
+    URI uri = ServletUriComponentsBuilder
+      .fromCurrentContextPath()
+      .path("/livros/{id}")
+      .buildAndExpand(newLivro.getId())
+      .toUri();
 
-        return ResponseEntity.created(uri).build();
-    }
+    return ResponseEntity.created(uri).build();
+  }
 
-    @PutMapping(value = "/{idCategoria}/{idLivro}")
-    public ResponseEntity<Livro> update(
-        @PathVariable Integer idCategoria, 
-        @PathVariable Integer idLivro,
-        @Valid
-        @RequestBody Livro livro) {
+  @PutMapping(value = "/{idCategoria}/{idLivro}")
+  public ResponseEntity<Livro> update(
+    @PathVariable Integer idCategoria,
+    @PathVariable Integer idLivro,
+    @Valid @RequestBody Livro livro
+  ) {
+    Livro newLivro = service.update(idCategoria, idLivro, livro);
 
-        Livro newLivro = service.update(idCategoria, idLivro, livro);
-        
-        return ResponseEntity.ok().body(newLivro);
-    }
+    return ResponseEntity.ok().body(newLivro);
+  }
 
+  @DeleteMapping(value = "/{idLivro}")
+  public ResponseEntity<Void> delete(@PathVariable Integer idLivro) {
+    service.delete(idLivro);
 
-    @DeleteMapping(value = "/{idLivro}")
-    public ResponseEntity<Void> delete(@PathVariable Integer idLivro) {
-        service.delete(idLivro);
-
-        return ResponseEntity.noContent().build();
-    }
+    return ResponseEntity.noContent().build();
+  }
 }

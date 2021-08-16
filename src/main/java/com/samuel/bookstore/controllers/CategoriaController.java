@@ -1,12 +1,10 @@
 package com.samuel.bookstore.controllers;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.samuel.bookstore.dtos.CategoriaDTO;
 import com.samuel.bookstore.model.Categoria;
 import com.samuel.bookstore.services.CategoriaService;
-
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,49 +22,49 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/categorias")
 public class CategoriaController {
 
-    @Autowired
-    private CategoriaService service;
+  @Autowired
+  private CategoriaService service;
 
-    @GetMapping(value = "/{idCategoria}")
-    public ResponseEntity<Categoria> findById(@PathVariable Integer idCategoria) {
-        Categoria obj = service.findById(idCategoria);
-        
-        return ResponseEntity.ok(obj);
-    }
+  @GetMapping(value = "/{idCategoria}")
+  public ResponseEntity<Categoria> findById(@PathVariable Integer idCategoria) {
+    Categoria obj = service.findById(idCategoria);
 
-    @GetMapping
-    public ResponseEntity<List<CategoriaDTO>> findAll() {
-        List<Categoria> list = service.findAll();
+    return ResponseEntity.ok(obj);
+  }
 
-        List<CategoriaDTO> listDTO = list
-                .stream()
-                .map(categoria -> new CategoriaDTO(categoria))
-                .collect(Collectors.toList());
+  @GetMapping
+  public ResponseEntity<List<CategoriaDTO>> findAll() {
+    List<Categoria> list = service.findAll();
 
-        return ResponseEntity.ok().body(listDTO);
-    }
+    List<CategoriaDTO> listDTO = list
+      .stream()
+      .map(categoria -> new CategoriaDTO(categoria))
+      .collect(Collectors.toList());
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Categoria create(@RequestBody Categoria categoria) {
-        Categoria cadastrarCategoria = service.create(categoria);
+    return ResponseEntity.ok().body(listDTO);
+  }
 
-        return cadastrarCategoria;
-    }
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public Categoria create(@RequestBody Categoria categoria) {
+    Categoria cadastrarCategoria = service.create(categoria);
 
-    @PutMapping(value = "/{idCategoria}")
-    public ResponseEntity<CategoriaDTO> update(
-        @PathVariable Integer idCategoria, 
-        @RequestBody CategoriaDTO objDto) {
+    return cadastrarCategoria;
+  }
 
-        Categoria newObj = service.update(idCategoria, objDto);
-        return ResponseEntity.ok().body(new CategoriaDTO(newObj));
-    }
+  @PutMapping(value = "/{idCategoria}")
+  public ResponseEntity<CategoriaDTO> update(
+    @PathVariable Integer idCategoria,
+    @RequestBody CategoriaDTO objDto
+  ) {
+    Categoria newObj = service.update(idCategoria, objDto);
+    return ResponseEntity.ok().body(new CategoriaDTO(newObj));
+  }
 
-    @DeleteMapping(value = "/{idCategoria}")
-    public ResponseEntity<Void> delete(@PathVariable Integer idCategoria) {
-        service.delete(idCategoria);
+  @DeleteMapping(value = "/{idCategoria}")
+  public ResponseEntity<Void> delete(@PathVariable Integer idCategoria) {
+    service.delete(idCategoria);
 
-        return ResponseEntity.noContent().build();
-    }
+    return ResponseEntity.noContent().build();
+  }
 }
