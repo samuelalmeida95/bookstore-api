@@ -78,6 +78,6 @@ public class LivroController {
   public ResponseEntity<Void> delete(@PathVariable Integer idLivro) {
     service.delete(idLivro);
 
-    return ResponseEntity.noContent().build();
+    return ResponseEntity.accepted().build();
   }
 }

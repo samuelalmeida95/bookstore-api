@@ -47,9 +47,8 @@ public class CategoriaController {
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Categoria create(@RequestBody Categoria categoria) {
-    Categoria cadastrarCategoria = service.create(categoria);
+    return service.create(categoria);
 
-    return cadastrarCategoria;
   }
 
   @PutMapping(value = "/{idCategoria}")
@@ -65,6 +64,6 @@ public class CategoriaController {
   public ResponseEntity<Void> delete(@PathVariable Integer idCategoria) {
     service.delete(idCategoria);
 
-    return ResponseEntity.noContent().build();
+    return ResponseEntity.accepted().build();
   }
 }
